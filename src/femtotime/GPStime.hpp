@@ -5,7 +5,8 @@
 */
 #pragma once
 
-// [C++ headers]
+// [C/C++ headers]
+#include <time.h>
 #include <vector>
 #include <cmath>
 #include <string>
