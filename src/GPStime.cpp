@@ -8,6 +8,7 @@
 #include "femtotime/GPStime.hpp"
 
 // [C++ headers]
+#include <time.h>
 #include <algorithm>
 #include <array>
 #include <iostream>
