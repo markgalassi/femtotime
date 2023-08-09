@@ -41,13 +41,15 @@ install_headers('src/femtotime/GPStime.hpp',
 
 fmt_dep = dependency('fmt')
 msgpack_dep = dependency('msgpack', required : false)
-if msgpack_dep.found()
+msgpackcxx_dep = dependency('msgpack-cxx', required : false)
+if msgpack_dep.found() or msgpackcxx_dep.found()
+  message('using msgpack')
   add_project_arguments([
                          '-DHAVE_MSGPACK=1',
                          ],
                          language : 'cpp')
 endif
-all_deps = [fmt_dep, msgpack_dep]
+all_deps = [fmt_dep, msgpack_dep, msgpackcxx_dep]
 
 libfemtotime = shared_library('femtotime',
         'src/GPStime.cpp',
