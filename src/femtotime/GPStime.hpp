@@ -98,6 +98,9 @@ public:
   /** @brief convert the time structure to a string */
   std::string ToString() const;
 
+  /** @brief convert the time structure to a string with fewer digits */
+  std::string ToStringBrief() const;
+
   /** @brief convert time structure to a date string */
   std::string DateString() const;
 
@@ -119,6 +122,9 @@ public:
   // FIXME? Should this be a method on utc_time_t instead?
   /** @brief Convert an ISO-format UTC string to a gps_time_t */
   static gps_time_t FromISOString(const std::string& utc_time);
+
+  /** @brief Convert a gps_time_t to a UTC string with fewere digits */
+  std::string ToUTCStringBrief() const;
 
   /** @brief Convert a gps_time_t to a UTC string */
   std::string ToUTCString() const;
@@ -231,6 +237,9 @@ public:
 
   /** @brief convert the time structure to a UTC string */
   std::string ToString() const;
+  
+  /** @brief convert the time structure to a UTC string with fewer digits */
+  std::string ToStringBrief() const;
   
   /** @brief convert time structure to a date string */
   std::string DateString() const;
@@ -384,6 +393,9 @@ gps_time_t FromGPSString(const std::string& utc_time);
 
 /** @brief Convert a gps_time_t to a UTC string */
 std::string ToUTCString(const gps_time_t &gps_time);
+
+/** @brief Convert a gps_time_t to a UTC string */
+std::string ToUTCStringBrief(const gps_time_t &gps_time);
 
 /** @brief Convert a gps_time_t to a utc_time_t */
 utc_time_t ToUTC(const gps_time_t &gps_time);
