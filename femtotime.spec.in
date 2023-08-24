@@ -59,6 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %{_includedir}/%{name}/*
 %{_libdir}/pkgconfig/*
+%{_mandir}/*/*
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
