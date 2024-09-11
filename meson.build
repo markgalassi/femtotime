@@ -73,23 +73,23 @@ endif
 # subdir('testsrc/integration')
 # subdir('testsrc/regression')
 
-# stylecheck tests
-nsiqcppstyle = find_program('nsiqcppstyle', required : false)
-if nsiqcppstyle.found()
-  message('making stylecheck target')
-  cmd_str = ('python2 /usr/lib/nsiqcppstyle/nsiqcppstyle.py --no-update --output=xml -f ' + meson.project_source_root()
-             + '/filefilter.txt ' + meson.project_source_root())
-  stylecheck = custom_target('stylecheck',
-                             output : 'stylecheck',
-                             command : cmd_str.split())
-  cmd_str_e = ('python2 /usr/lib/nsiqcppstyle/nsiqcppstyle.py --no-update --output=emacs -f ' + meson.project_source_root()
-               + '/filefilter.txt ' + meson.project_source_root())
-  message('cmd_str_e: ' + cmd_str_e)
-  message(cmd_str_e)
-  stylecheck_emacs = custom_target('stylecheck-emacs',
-                                   output : 'stylecheck-emacs',
-                                   command : cmd_str_e.split())
-endif
+# # stylecheck tests
+# nsiqcppstyle = find_program('nsiqcppstyle', required : false)
+# if nsiqcppstyle.found()
+#   message('making stylecheck target')
+#   cmd_str = ('python2 /usr/lib/nsiqcppstyle/nsiqcppstyle.py --no-update --output=xml -f ' + meson.project_source_root()
+#              + '/filefilter.txt ' + meson.project_source_root())
+#   stylecheck = custom_target('stylecheck',
+#                              output : 'stylecheck',
+#                              command : cmd_str.split())
+#   cmd_str_e = ('python2 /usr/lib/nsiqcppstyle/nsiqcppstyle.py --no-update --output=emacs -f ' + meson.project_source_root()
+#                + '/filefilter.txt ' + meson.project_source_root())
+#   message('cmd_str_e: ' + cmd_str_e)
+#   message(cmd_str_e)
+#   stylecheck_emacs = custom_target('stylecheck-emacs',
+#                                    output : 'stylecheck-emacs',
+#                                    command : cmd_str_e.split())
+# endif
 
 # now prepare documentation
 # if get_option('build_docs')
