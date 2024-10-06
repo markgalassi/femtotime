@@ -559,10 +559,9 @@ gps_time_t FromUTCString(const std::string& utc_time)
   return gps_time_t::FromUTCString(utc_time);
 }
 
-/** @brief Convert a UTC time string to a gps_time_t */
+/** @brief Convert a GPS time string to a gps_time_t */
 gps_time_t gps_time_t::FromGPSString(const std::string& gps_time)
 {
-
   int year, month, day, hour, min, seconds;
 
   // Scan the string into constituent parts
@@ -577,7 +576,7 @@ gps_time_t gps_time_t::FromGPSString(const std::string& gps_time)
     nanos = 0;
 
     if (result != 6) {
-      auto msg = fmt::format("Cannot parse string '{}' as UTC time", gps_time);
+      auto msg = fmt::format("Cannot parse string '{}' as GPS time", gps_time);
       throw std::runtime_error(msg);
     }
   } else {
