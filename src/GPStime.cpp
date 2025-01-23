@@ -883,10 +883,11 @@ string gps_time_t::ToString() const
   auto [mins, partial_mins] = euclidean_div(partial_hours, fs_per_min);
   auto [secs, femtos] = euclidean_div(partial_mins, fs_per_sec);
 
-  return fmt::format(
+  string s = fmt::format(
     "GPS_{:04}-{:02}-{:02}T{:02}:{:02}:{:02}.{:015}Z",
     year, month, day, hours, mins, secs, femtos
   );
+  return s;
 }
 
 string gps_time_t::ToStringBrief() const
@@ -897,10 +898,11 @@ string gps_time_t::ToStringBrief() const
   auto [mins, partial_mins] = euclidean_div(partial_hours, fs_per_min);
   auto [secs, femtos] = euclidean_div(partial_mins, fs_per_sec);
 
-  return fmt::sprintf(
-    "GPS_%04d-%02d-%02dT%02d:%02d:%02.gZ",
+  string s = fmt::sprintf(
+    "GPS_%04d-%02d-%02dT%02d:%02d:%02.15gZ",
     year, month, day, hours, mins, secs + femtos*1e-15
   );
+  return s;
 }
 
 string gps_time_t::DateString() const
