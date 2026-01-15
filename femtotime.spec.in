@@ -15,10 +15,7 @@ Group: Science
 URL: http://diorama.lanl.gov/
 Source0: %{name}-%{version}.tar.@COMPRESS_SUFFIX@
 
-Requires: msgpack
-
 BuildRequires: fmt-devel
-BuildRequires: msgpack
 
 %description
 Femtosecond-based time library.
