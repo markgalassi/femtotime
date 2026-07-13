@@ -1,5 +1,5 @@
-global __meson $HOME/.local/bin/meson
-global __python %{python3}
+# global __meson $HOME/.local/bin/meson
+# global __python #{python3}
 %global set_build_flags %{nil}
 %global _smp_build_ncpus 64
 %global _vpath_srcdir .
