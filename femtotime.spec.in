@@ -1,9 +1,9 @@
-%global __meson $HOME/.local/bin/meson
-%global __python %{python3}
+global __meson $HOME/.local/bin/meson
+global __python %{python3}
 %global set_build_flags %{nil}
+%global _smp_build_ncpus 64
 %global _vpath_srcdir .
 %global _vpath_builddir %{_target_platform}
-%global _smp_build_ncpus 64
 
 Summary: orbit propagation libraries
 Name: @PACKAGE_NAME@
@@ -16,6 +16,8 @@ URL: http://diorama.lanl.gov/
 Source0: %{name}-%{version}.tar.@COMPRESS_SUFFIX@
 
 BuildRequires: fmt-devel
+BuildRequires: meson
+BuildRequires: gcc-c++
 
 %description
 Femtosecond-based time library.
@@ -23,13 +25,16 @@ Femtosecond-based time library.
 %package devel
 Summary: Development libraries for femtotime
 Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
+BuildRequires: fmt-devel
+BuildRequires: meson
+BuildRequires: gcc-c++
 
 %description devel
 Development libraries for femtotime.
 
 %prep
 export PATH=$HOME/.local/bin/:$PATH
-%autosetup
+%setup -q
 
 %build
 export PATH=$HOME/.local/bin/:$PATH
