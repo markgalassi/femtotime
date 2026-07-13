@@ -1,3 +1,4 @@
+%global debug_package %{nil}
 # global __meson $HOME/.local/bin/meson
 # global __python #{python3}
 %global set_build_flags %{nil}
