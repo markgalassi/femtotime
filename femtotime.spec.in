@@ -1,10 +1,10 @@
 ##global debug_package ##{nil}
 # FIXME: for now add-determinism is still buggy on fc41
-%global add_determinism_paths %{nil}
-%global __python %{python3}
-%global set_build_flags %{nil}
-%global _vpath_srcdir .
-%global _vpath_builddir %{_target_platform}
+# ##global add_determinism_paths ##{nil}
+# ##global __python ##{python3}
+# ##global set_build_flags ##{nil}
+# ##global _vpath_srcdir .
+# ##global _vpath_builddir ##{_target_platform}
 
 Summary: orbit propagation libraries
 Name: @PACKAGE_NAME@
@@ -34,24 +34,22 @@ BuildRequires: gcc-c++
 Development libraries for femtotime.
 
 %prep
-export PATH=$HOME/.local/bin/:$PATH
+#export PATH=$HOME/.local/bin/:$PATH
 %setup -q
 
 %build
-export PATH=$HOME/.local/bin/:$PATH
+#export PATH=$HOME/.local/bin/:$PATH
 %meson
 %meson_build
 
 %install
-export PATH=$HOME/.local/bin/:$PATH
+# printenv
+# echo $RPM_BUILD_ROOT
+mkdir -p %{buildroot}
+# /bin/ls -lsat %{buildroot}
+# /bin/ls -lsat $RPM_BUILD_ROOT
+#export PATH=$HOME/.local/bin/:$PATH
 %meson_install
-
-# check
-# export PATH=$HOME/.local/bin/:$PATH
-# meson_test
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
