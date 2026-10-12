@@ -58,18 +58,8 @@ echo "ABOUT_TO_TRY %meson --native-file ..."
 %{?fedora:%meson}
 g++ --version
 meson --version
-ls -lsat /opt/rh/gcc-toolset-15/root/usr/bin/
-ls -lsat /opt/rh/gcc-toolset-15/root/usr/bin/g++
-/opt/rh/gcc-toolset-15/root/usr/bin/g++ --version
-g++ --version
-meson --version
-ls -lsat /opt/rh/gcc-toolset-15/root/usr/bin/g++
-/opt/rh/gcc-toolset-15/root/usr/bin/g++ --version
-g++ --version
 %meson_build
 meson --version
-ls -lsat /opt/rh/gcc-toolset-15/root/usr/bin/g++
-/opt/rh/gcc-toolset-15/root/usr/bin/g++ --version
 g++ --version
 
 %install
