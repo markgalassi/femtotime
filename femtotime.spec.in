@@ -17,8 +17,7 @@ URL: http://diorama.lanl.gov/
 Source0: %{name}-%{version}.tar.@COMPRESS_SUFFIX@
 
 BuildRequires: fmt-devel
-BuildRequires: meson
-BuildRequires: gcc-c++
+BuildRequires: meson >= 1.11.0
 
 %description
 Femtosecond-based time library.
@@ -28,27 +27,48 @@ Summary: Development libraries for femtotime
 Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 BuildRequires: fmt-devel
 BuildRequires: meson
-BuildRequires: gcc-c++
+%{?el8:BuildRequires: gcc-toolset-15-gcc-c++}
+%{?el8:BuildRequires: gcc-toolset-15-gcc-plugin-annobin}
+%{?el9:BuildRequires: gcc-toolset-15-gcc-c++}
+%{?el9:BuildRequires: gcc-toolset-15-gcc-plugin-annobin}
+%{?el10:BuildRequires: gcc-c++}
+%{?fedora:BuildRequires: gcc-c++}
 
 %description devel
 Development libraries for femtotime.
 
 %prep
-#export PATH=$HOME/.local/bin/:$PATH
 %setup -q
+meson --version
+ls -lsat /opt/rh/gcc-toolset-15/root/usr/bin/g++
+/opt/rh/gcc-toolset-15/root/usr/bin/g++ --version
+g++ --version
 
 %build
-#export PATH=$HOME/.local/bin/:$PATH
-%meson
+echo "ABOUT_TO_TRY %meson --native-file ..."
+/bin/ls -lsat *.ini || true
+%{?el8:%meson --native-file gcc15-toolchain.ini}
+%{?el9:%meson --native-file gcc15-toolchain.ini}
+%{?el10:%meson}
+%{?fedora:%meson}
+g++ --version
+meson --version
+ls -lsat /opt/rh/gcc-toolset-15/root/usr/bin/
+ls -lsat /opt/rh/gcc-toolset-15/root/usr/bin/g++
+/opt/rh/gcc-toolset-15/root/usr/bin/g++ --version
+g++ --version
+meson --version
+ls -lsat /opt/rh/gcc-toolset-15/root/usr/bin/g++
+/opt/rh/gcc-toolset-15/root/usr/bin/g++ --version
+g++ --version
 %meson_build
+meson --version
+ls -lsat /opt/rh/gcc-toolset-15/root/usr/bin/g++
+/opt/rh/gcc-toolset-15/root/usr/bin/g++ --version
+g++ --version
 
 %install
-# printenv
-# echo $RPM_BUILD_ROOT
-mkdir -p %{buildroot}
-# /bin/ls -lsat %{buildroot}
-# /bin/ls -lsat $RPM_BUILD_ROOT
-#export PATH=$HOME/.local/bin/:$PATH
+/bin/ls -lsat
 %meson_install
 
 %files

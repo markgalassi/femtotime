@@ -7,8 +7,8 @@
 # ninja -C _mbuilddocs
 
 project('femtotime', 'cpp', version : '0.2.4plus',
-       license : 'GPL-3.0-or-later', meson_version: '>= 0.58.2',
-       default_options : ['cpp_std=c++20'])
+       license : 'GPL-3.0-or-later', meson_version: '>= 1.11.0',
+       default_options : ['cpp_std=c++23'])
 
 conf_data = configuration_data()
 conf_data.set('VERSION', meson.project_version())
