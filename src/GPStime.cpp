@@ -1128,25 +1128,6 @@ gps_time_t utc_time_t::ToGPS() const
   return gps_time_t::FromUTC(*this);
 }
 
-
-std::ostream& operator<<(std::ostream& os, __int128 const& value) {
-    __int128 val = value;
-    if (val == 0) return os << "0";
-    
-    std::string s;
-    bool negative = val < 0;
-    if (negative) val = -val;
-    
-    while (val > 0) {
-        s += '0' + (val % 10);
-        val /= 10;
-    }
-    if (negative) s += '-';
-    
-    std::reverse(s.begin(), s.end());
-    return os << s;
-}
-
 /** @brief Convert the timestamp to a string */
 std::string utc_time_t::ToString() const
 {
