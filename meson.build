@@ -6,8 +6,14 @@
 # meson setup _mbuilddocs --prefix=$DIO_LOCAL_PREFIX -Dbuild_docs=true
 # ninja -C _mbuilddocs
 
+# require meson-1.4.0.  this is native with el10, and with el8 and el9
+# we have found stable sources of meson 1.11 or higher, so this should
+# be OK.  for example:
+# https://pkgs.sysadmins.ws/el8/extras/x86_64/meson-1.11.2-1.el8.noarch.rpm
+# and
+# https://pkgs.sysadmins.ws/el9/extras/x86_64/meson-1.11.2-1.el9.noarch.rpm
 project('femtotime', 'cpp', version : '0.2.4plus',
-       license : 'GPL-3.0-or-later', meson_version: '>= 1.11.0',
+       license : 'GPL-3.0-or-later', meson_version: '>= 1.4.0',
        default_options : ['cpp_std=c++23'])
 
 conf_data = configuration_data()
