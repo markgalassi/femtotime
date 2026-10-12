@@ -32,7 +32,6 @@ Femtosecond-based time library.
 Summary: Development libraries for femtotime
 Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 BuildRequires: fmt-devel
-BuildRequires: meson
 %{?el8:BuildRequires: gcc-toolset-15-gcc-c++}
 %{?el8:BuildRequires: gcc-toolset-15-gcc-plugin-annobin}
 %{?el9:BuildRequires: gcc-toolset-15-gcc-c++}
