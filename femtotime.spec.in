@@ -44,10 +44,6 @@ Development libraries for femtotime.
 
 %prep
 %setup -q
-meson --version
-ls -lsat /opt/rh/gcc-toolset-15/root/usr/bin/g++
-/opt/rh/gcc-toolset-15/root/usr/bin/g++ --version
-g++ --version
 
 %build
 echo "ABOUT_TO_TRY %meson --native-file ..."
@@ -56,11 +52,7 @@ echo "ABOUT_TO_TRY %meson --native-file ..."
 %{?el9:%meson --native-file gcc15-toolchain.ini}
 %{?el10:%meson}
 %{?fedora:%meson}
-g++ --version
-meson --version
 %meson_build
-meson --version
-g++ --version
 
 %install
 /bin/ls -lsat
