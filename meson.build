@@ -12,6 +12,8 @@
 # https://pkgs.sysadmins.ws/el8/extras/x86_64/meson-1.11.2-1.el8.noarch.rpm
 # and
 # https://pkgs.sysadmins.ws/el9/extras/x86_64/meson-1.11.2-1.el9.noarch.rpm
+# (and of course if you install meson with pipx then you will always
+# have a new-ish versions)
 project('femtotime', 'cpp', version : '0.2.4plus',
        license : 'GPL-3.0-or-later', meson_version: '>= 1.4.0',
        default_options : ['cpp_std=c++23'])
